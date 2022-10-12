@@ -4,7 +4,7 @@ export interface IListNode<T> {
 }
 
 export class ListNode<T = number> implements IListNode<number> {
-    constructor(public val: number, public next: IListNode<number> | null = null) {}
+    constructor(public val: number, public next: IListNode<number> | null = null) { }
 }
 
 export function makeListNode(values: number[]) {
