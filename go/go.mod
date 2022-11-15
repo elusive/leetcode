@@ -1,4 +1,4 @@
-module github.com/Elusive/practice/leetcode
+module github.com/elusive/leetcode
 
 
 go 1.19
