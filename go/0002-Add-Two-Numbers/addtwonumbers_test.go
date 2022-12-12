@@ -1,16 +1,10 @@
-package add_two_numbers
+package leetcode
 
 import (
 	"fmt"
 	"testing"
 )
 
-type Test struct {
-	description string
-	input1      ListNode
-	input2      ListNode
-	expected    ListNode
-}
 
 /*
    Constraints:
@@ -19,50 +13,20 @@ type Test struct {
        no leading zeros in represented numbers
 */
 
-func getExamples() []Test {
-	var tests = []Test{
-		{
-			"Test Case 1",
-			ListNode{Val: 0, Next: &ListNode{Val: 1}},
-			ListNode{Val: 0, Next: &ListNode{Val: 1, Next: &ListNode{Val: 2}}},
-			ListNode{Val: 0, Next: &ListNode{Val: 2, Next: &ListNode{Val: 2}}},
-		},
-		{
-			"Test Case 2",
-			ListNode{},
-			ListNode{Val: 0, Next: &ListNode{Val: 1}},
-			ListNode{Val: 0, Next: &ListNode{Val: 1}},
-		},
-		{
-			"Test Case 3",
-			ListNode{Val: 9, Next: &ListNode{Val: 9}},
-			ListNode{Val: 1},
-			ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1}}},
-		},
-		{
-			"Example 1",
-			ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}},
-			ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 4}}},
-			ListNode{Val: 7, Next: &ListNode{Val: 0, Next: &ListNode{Val: 8}}},
-		},
-		{
-			"Example 2",
-			ListNode{Val: 0},
-			ListNode{Val: 0},
-			ListNode{Val: 0},
-		},
-		{
-			"Example 3",
-			ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9}}}}}}},
-			ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9}}}},
-			ListNode{Val: 8, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 9, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 0, Next: &ListNode{Val: 1}}}}}}}},
-		},
-	}
-	return tests
-}
 
 func TestExamples(t *testing.T) {
-	tests := getExamples()
+	var test = []struct{
+        description     string
+        input1, input2  *ListNode
+        expected        *ListNode
+    }{
+        {"Test Case 1", newList(0, 1), newList(0, 1, 2), newList(0, 2, 2)},
+        /*{"Test Case 2", &ListNode{}, newList(0, 1), newList(0, 1)},*/
+        {"Test Case 3", newList(9, 9), newList(1), newList(0, 0, 1)},
+        {"Example 1", newList(2, 4, 3), newList(5, 6, 4), newList(7, 0, 8)},
+        {"Example 2", newList(0), newList(0), newList(0)},
+        {"Example 3", newList(9, 9, 9, 9, 9, 9, 9), newList(9, 9, 9, 9), newList(8, 9, 9, 9, 0, 0, 0, 1)},
+    }
 	fmt.Printf("%v\n", tests)
 	for _, tv := range tests {
 		t.Run(tv.description, func(t *testing.T) {
