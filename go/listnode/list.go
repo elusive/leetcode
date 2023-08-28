@@ -6,7 +6,7 @@ import (
 )
 
 
-func newList(vs ...int) *ListNode {
+func NewList(vs ...int) *ListNode {
 	l := new(ListNode)
 	n := l
 	for _,v := range vs {

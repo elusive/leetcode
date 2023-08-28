@@ -12,7 +12,7 @@ func TestList(t *testing.T){
 	}
 
 	for _,tt := range tests {
-		s := newList(tt.vals...).String()
+		s := NewList(tt.vals...).String()
 		if s != tt.s {
 			t.Errorf("newList(%v) returns %v, want %v", tt.vals, s, tt.s)
 		}

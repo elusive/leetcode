@@ -20,15 +20,15 @@ func TestExamples(t *testing.T) {
         input1, input2  *ListNode
         expected        *ListNode
     }{
-        {"Test Case 1", newList(0, 1), newList(0, 1, 2), newList(0, 2, 2)},
-        /*{"Test Case 2", &ListNode{}, newList(0, 1), newList(0, 1)},*/
-        {"Test Case 3", newList(9, 9), newList(1), newList(0, 0, 1)},
-        {"Example 1", newList(2, 4, 3), newList(5, 6, 4), newList(7, 0, 8)},
-        {"Example 2", newList(0), newList(0), newList(0)},
-        {"Example 3", newList(9, 9, 9, 9, 9, 9, 9), newList(9, 9, 9, 9), newList(8, 9, 9, 9, 0, 0, 0, 1)},
+        {"Test Case 1", NewList(0, 1), NewList(0, 1, 2), NewList(0, 2, 2)},
+        /*{"Test Case 2", &ListNode{}, NewList(0, 1), NewList(0, 1)},*/
+        {"Test Case 3", NewList(9, 9), NewList(1), NewList(0, 0, 1)},
+        {"Example 1", NewList(2, 4, 3), NewList(5, 6, 4), NewList(7, 0, 8)},
+        {"Example 2", NewList(0), NewList(0), NewList(0)},
+        {"Example 3", NewList(9, 9, 9, 9, 9, 9, 9), NewList(9, 9, 9, 9), NewList(8, 9, 9, 9, 0, 0, 0, 1)},
     }
-	fmt.Printf("%v\n", tests)
-	for _, tv := range tests {
+	fmt.Printf("%v\n", test)
+	for _, tv := range test {
 		t.Run(tv.description, func(t *testing.T) {
 			result := AddTwoNumbers(tv.input1, tv.input2)
 			if result != tv.expected {

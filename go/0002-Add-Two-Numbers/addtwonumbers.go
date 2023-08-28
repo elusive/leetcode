@@ -1,5 +1,9 @@
 package leetcode
 
+import {
+    ListNode ../listnode
+}
+
 func AddTwoNumbers(input1 ListNode, input2 ListNode) ListNode {
 	var rtn ListNode = ListNode{Val: 0}
 	var x, y, carry, sum int = 0, 0, 0, 0
